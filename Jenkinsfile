@@ -9,18 +9,19 @@ pipeline {
 
         stage("Setup Python Env") {
             steps {
-                sh """
-                python3 -m venv ${VENV_DIR}
-                source ${VENV_DIR}/bin/activate
-                pip install --upgrade pip
-                pip install -r requirements.txt
-                """
+                sh '''
+                python3 -m venv venv
+                ./venv/bin/pip install --upgrade pip
+                ./venv/bin/pip install -r requirements.txt
+                '''
             }
         }
 
         stage("Ingestion") {
             steps {
-                sh "source ${VENV_DIR}/bin/activate && scripts/run_ingestion.sh"
+                sh '''
+                ./venv/bin/python -m src.ingestion.ingest_job --symbol INFY --input_path data/sample_stock_data.csv
+                '''
             }
         }
 
