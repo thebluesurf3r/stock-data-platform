@@ -1,0 +1,50 @@
+############################
+# Python
+############################
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+############################
+# Virtual Environment
+############################
+venv/
+
+############################
+# Data (DO NOT COMMIT DATA)
+############################
+data/
+# If you ever want to keep schema/examples, do it elsewhere
+
+############################
+# Models / ML Artifacts
+############################
+models/
+
+############################
+# Spark / Hadoop
+############################
+spark-warehouse/
+*.log
+*.out
+
+############################
+# OS / Editor
+############################
+.vscode/
+.idea/
+.DS_Store
+
+############################
+# Jenkins / CI
+############################
+.jenkins/
+
+############################
+# Misc
+############################
+.ipynb_checkpoints/
