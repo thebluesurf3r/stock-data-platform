@@ -29,37 +29,38 @@ pipeline {
         }
 
 
-        stage("Ingestion") {
-            steps {
-                sh '''
-                ./venv/bin/python -m src.ingestion.ingest_job --symbol INFY --input_path data/sample_stock_data.csv
-                '''
-            }
-        }
-
         stage("Processing") {
             steps {
-                sh "source ${VENV_DIR}/bin/activate && scripts/run_processing.sh"
+                sh '''
+                ./venv/bin/python scripts/run_processing.sh
+                '''
             }
         }
 
         stage("Indicators") {
             steps {
-                sh "source ${VENV_DIR}/bin/activate && scripts/run_indicators.sh"
+                sh '''
+                ./venv/bin/python scripts/run_indicators.sh
+                '''
             }
         }
 
         stage("Model Training") {
             steps {
-                sh "source ${VENV_DIR}/bin/activate && scripts/run_training.sh"
+                sh '''
+                ./venv/bin/python scripts/run_training.sh
+                '''
             }
         }
 
         stage("Smoke Tests") {
             steps {
-                sh "source ${VENV_DIR}/bin/activate && scripts/smoke_tests.sh"
+                sh '''
+                ./venv/bin/python scripts/smoke_tests.sh
+                '''
             }
         }
+
     }
 
     post {
