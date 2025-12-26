@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 ./venv/bin/python -m src.ml.train_model \
   --symbol INFY

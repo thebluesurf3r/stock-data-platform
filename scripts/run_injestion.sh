@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 ./venv/bin/python -m src.ingestion.ingest_job \
   --symbol INFY \

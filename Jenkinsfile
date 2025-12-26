@@ -32,7 +32,7 @@ pipeline {
         stage("Processing") {
             steps {
                 sh '''
-                ./venv/bin/python scripts/run_processing.sh
+                scripts/run_processing.sh
                 '''
             }
         }
@@ -40,7 +40,7 @@ pipeline {
         stage("Indicators") {
             steps {
                 sh '''
-                ./venv/bin/python scripts/run_indicators.sh
+                scripts/run_indicators.sh
                 '''
             }
         }
@@ -48,7 +48,7 @@ pipeline {
         stage("Model Training") {
             steps {
                 sh '''
-                ./venv/bin/python scripts/run_training.sh
+                scripts/run_training.sh
                 '''
             }
         }
@@ -56,7 +56,7 @@ pipeline {
         stage("Smoke Tests") {
             steps {
                 sh '''
-                ./venv/bin/python scripts/smoke_tests.sh
+                scripts/smoke_tests.sh
                 '''
             }
         }
