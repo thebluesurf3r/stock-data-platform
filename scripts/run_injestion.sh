@@ -1,11 +1,5 @@
 #!/bin/bash
-set -e
 
 ./venv/bin/python -m src.ingestion.ingest_job \
   --symbol INFY \
   --input_path data/sample_stock_data.csv
-
-
-  #!/bin/sh
- src.processing.compute_indicators_job --symbol INFY
-
