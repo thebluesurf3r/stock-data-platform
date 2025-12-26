@@ -44,6 +44,6 @@ def generate_large_stock_data(filename, num_rows):
                 print(f"Progress: {i:,} / {num_rows:,} rows generated...")
 
 # Updated path and row count
-target_file = 'data/raw/stocks/sample_stock_data.csv'
+target_file = 'data/sample_stock_data.csv'
 generate_large_stock_data(target_file, 10000000)
 print(f"Successfully generated {target_file}")
