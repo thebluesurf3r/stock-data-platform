@@ -17,6 +17,18 @@ pipeline {
             }
         }
 
+        stage('Generate Sample Data') {
+            steps {
+                sh '''
+                mkdir -p data
+                ./venv/bin/python src/utils/sample_data_generator.py \
+                --output data/sample_stock_data.csv \
+                --symbol INFY
+                '''
+            }
+        }
+
+
         stage("Ingestion") {
             steps {
                 sh '''
