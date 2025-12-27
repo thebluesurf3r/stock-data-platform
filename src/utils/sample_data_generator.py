@@ -45,5 +45,5 @@ def generate_large_stock_data(filename, num_rows):
 
 # Updated path and row count
 target_file = 'data/sample_stock_data.csv'
-generate_large_stock_data(target_file, 10000000)
+generate_large_stock_data(target_file, 20000000)
 print(f"Successfully generated {target_file}")
