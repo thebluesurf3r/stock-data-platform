@@ -270,8 +270,9 @@ All steps are fully automated and fail-fast.
 🚀 How to Run Locally
 1️⃣ Create virtual environment
 python3 -m venv venv
-source venv/bin/activate
+./venv/bin/python <your_command>
 pip install -r requirements.txt
+⚠️ In CI pipelines, virtualenv activation is avoided. Python binaries are invoked directly.
 
 2️⃣ Run pipeline manually
 scripts/run_ingestion.sh
