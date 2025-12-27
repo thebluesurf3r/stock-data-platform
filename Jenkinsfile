@@ -32,7 +32,8 @@ pipeline {
         stage("Processing") {
             steps {
                 sh '''
-                scripts/run_processing.sh
+                chmod +x scripts/run_processing.sh
+                bash scripts/run_processing.sh
                 '''
             }
         }
@@ -40,7 +41,8 @@ pipeline {
         stage("Indicators") {
             steps {
                 sh '''
-                scripts/run_indicators.sh
+                chmod +x scripts/run_indicators.sh
+                bash scripts/run_indicators.sh
                 '''
             }
         }
@@ -48,7 +50,8 @@ pipeline {
         stage("Model Training") {
             steps {
                 sh '''
-                scripts/run_training.sh
+                chmod +x scripts/run_training.sh
+                bash scripts/run_training.sh
                 '''
             }
         }
@@ -56,7 +59,8 @@ pipeline {
         stage("Smoke Tests") {
             steps {
                 sh '''
-                scripts/smoke_tests.sh
+                chmod +x scripts/smoke_tests.sh
+                bash scripts/smoke_tests.sh
                 '''
             }
         }
@@ -65,10 +69,10 @@ pipeline {
 
     post {
         failure {
-            echo "❌ Pipeline failed"
+            echo "Pipeline failed"
         }
         success {
-            echo "✅ Pipeline succeeded"
+            echo "Pipeline succeeded"
         }
     }
 }
